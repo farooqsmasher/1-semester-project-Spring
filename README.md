@@ -2,6 +2,9 @@
 # 1-semester-project-Spring
 Ebaling-outsourcing using key updates
 
+## Technologies used:Java, JavaScript, JSP, JDBC, Spring, Hibernate, HTML, CSS, XML, MYSQL, Tomcat.
+
+
 ## Abstract
 This application is a third party auditing service which enhances the security and eliminates the key exposure in cloud application. The TPA helps the client to complete a high security file upload and download with transparency in the key updation. Thus inclusion of a third party auditing will eliminate the burden on the client’s side. Thus TPA will generate a highly encrypt class of the key which is private key of the client. The client can authenti- cate the encrypted private key. This key updation will en- able the users to validate and verify the secret keys provid- ed by the TPA. This is a feature which helps in implement- ing safe and clear auditing for the users or the clients.
 
