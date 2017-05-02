@@ -1,0 +1,168 @@
+ input:focus + .validation { display: block; }
+	 input:focus:required:invalid + .validation .valid,
+ 	input.error:focus + .validation .valid,
+ 	input.required:focus + .validation .valid,
+ 	input:focus + .validation .valid					{ display: none; }
+ input:focus:required:valid + .validation,
+ input.valid:focus + .validation					{ background:green; }
+ input:focus:required:valid + .validation .invalid,
+ input.valid:focus + .validation .invalid			{ display: none; }
+ input:focus:required:valid + .validation .valid,
+ input.valid:focus + .validation .valid				{ display: block; }
+
+
+
+ select:focus + .validation { display: block; }
+ select:focus:required:invalid + .validation .valid,
+ select.error:focus + .validation .valid,
+ select.required:focus + .validation .valid,
+ select:focus + .validation .valid					{ display: none; }
+ select:focus:required:valid + .validation,
+ select.valid:focus + .validation					{ background:green; }
+ select:focus:required:valid + .validation .invalid,
+ select.valid:focus + .validation .invalid			{ display: none; }
+ select:focus:required:valid + .validation .valid,
+ select.valid:focus + .validation .valid				{ display: block; }
+
+
+ textarea:focus + .validation { display: block; }
+ textarea:focus:required:invalid + .validation .valid,
+ textarea.error:focus + .validation .valid,
+ textarea.required:focus + .validation .valid,
+ textarea:focus + .validation .valid					{ display: none; }
+ textarea:focus:required:valid + .validation,
+ textarea.valid:focus + .validation					{ background:green; }
+ textarea:focus:required:valid + .validation .invalid,
+ textarea.valid:focus + .validation .invalid			{ display: none; }
+ textarea:focus:required:valid + .validation .valid,
+ textarea.valid:focus + .validation .valid				{ display: block; }
+/*Additional Fields for validation*/
+
+div input:required:valid
+{ 
+	background-color: #0672a1;
+	color:white;
+	background-position: 379px -61px;
+	border-color:#0672a1
+}
+
+
+
+ div input:readonly:valid
+{ 
+	background-color: #0672a1;
+	color:white;
+	background-position: 379px -61px;
+	border-color:#0672a1
+}
+ div input:disabled
+{ 
+	background-color: darkslategray;
+	color:white;
+	background-position: 379px -61px;
+	border-color:darkslategray
+}
+
+  div select:required:valid
+{ 
+	background-color: #0672a1;
+	color:white;
+	background-position: 379px -61px;
+	border-color:#0672a1
+}
+ 
+   div textarea:required:valid
+{ 
+	background-color: #0672a1;
+	color:white;
+	background-position: 379px -61px;
+	border-color:#0672a1
+}
+ 
+div input:pattern:invalid{
+	background-color:black
+}
+
+div input.error
+{
+	background-color: red; 
+	background-position: 379px 3px;
+	outline: none; 
+}
+	
+
+
+body {
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	font-size: 12px;
+}
+
+.r-tabs {
+	position: relative;
+}
+
+.r-tabs .r-tabs-nav {
+	border-bottom: 1px solid #ccc;
+}
+
+.r-tabs .r-tabs-nav .r-tabs-tab {
+	position: relative;
+	top: 1px;
+}
+
+.r-tabs .r-tabs-nav .r-tabs-anchor {
+	background: #00aadd;
+	margin-bottom: 3px;
+	padding: 10px 12px;
+	display: inline-block;
+	text-decoration: none;
+	color: #fff;
+	font-weight: bold;
+}
+
+.r-tabs .r-tabs-nav .r-tabs-state-active {
+	background-color: #fff;
+	margin-bottom: -1px;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+}
+
+.r-tabs .r-tabs-nav .r-tabs-state-disabled {
+	opacity: 0.5;
+}
+
+.r-tabs .r-tabs-nav .r-tabs-state-active .r-tabs-anchor {
+	color: #00aadd;
+	background-color: #fff;
+}
+
+.r-tabs .r-tabs-panel {
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	margin-bottom: 3px;
+}
+
+.r-tabs .r-tabs-accordion-title .r-tabs-anchor {
+	display: block;
+	padding: 10px;
+	background-color: #00aadd;
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+	margin-bottom: 3px;
+}
+
+.r-tabs .r-tabs-accordion-title.r-tabs-state-disabled {
+	opacity: 0.5;
+}
+
+.r-tabs .r-tabs-accordion-title.r-tabs-state-active .r-tabs-anchor {
+	background-color: #fff;
+	color: #00aadd;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	margin-bottom: 0;
+}

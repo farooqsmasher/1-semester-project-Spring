@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
+
+	<http auto-config="true"  use-expressions="true">
+	<intercept-url pattern="/uiresources/**" filters="none" />
+		
+		<intercept-url pattern="/login" access="permitAll" />
+		<intercept-url pattern="/tpalogin" access="permitAll" />
+		<intercept-url pattern="/serverlogin" access="permitAll" />
+		<intercept-url pattern="/register" access="permitAll" />
+		<intercept-url pattern="/logout" access="permitAll" />
+		<intercept-url pattern="/accessdenied" access="permitAll" />
+		
+		
+		
+		
+		
+		
+		<intercept-url pattern="/usersList" access="hasAnyRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/adminRequestedFilesList" access="hasAnyRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/userTransactions" access="hasAnyRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/adminStatistics" access="hasAnyRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/allUserFilesList" access="hasAnyRole('ROLE_ADMIN','ROLE_TPA')" />
+		<intercept-url pattern="/tpaRequestedFilesList" access="hasAnyRole('ROLE_TPA')" />
+		<intercept-url pattern="/tpaStatistics" access="hasAnyRole('ROLE_TPA')" />
+		
+		
+		
+		
+		
+		<intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TPA')" />
+		
+		<form-login login-page="/login" default-target-url="/home" authentication-failure-url="/accessdenied" />
+		<logout logout-success-url="/logout" />
+	
+	<form-login login-page="/tpalogin" default-target-url="/tpaRequestedFilesList" authentication-failure-url="/accessdenied" />
+		<logout logout-success-url="/logout" />
+	<form-login login-page="/serverlogin" default-target-url="/home" authentication-failure-url="/accessdenied" />
+		<logout logout-success-url="/logout" />
+	</http>
+	
+<authentication-manager alias="authenticationManager">
+		<authentication-provider>
+			<jdbc-user-service data-source-ref="dataSource"
+ 
+		   users-by-username-query="
+		     SELECT USERNAME, PASSWORD, CASE ENABLED WHEN 1 THEN 'true' ELSE 'false' END 'ENABLED' 
+		     FROM TBL_USERS 
+		     WHERE USERNAME=?;"
+ 
+		   authorities-by-username-query="
+		    SELECT u.USERNAME, r.ROLENAME 
+			FROM TBL_USERS u, TBL_USER_ROLE r
+			WHERE u.USERNAME = r.USERNAME
+			AND u.USERNAME=?;"
+ 
+			/>
+		</authentication-provider>
+	</authentication-manager>
+
+</beans:beans>
